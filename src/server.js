@@ -2,7 +2,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 dotenv.config();
-const { Sequelize } = require("sequelize");
+const { Sequelize } = require("./models");
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 async function start() {
   try {
     await Sequelize.authenticate();
-    console.log("DB Connected Successfully");
+    console.log("====DB Connected Successfully====");
 
     app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
   } catch (err) {
